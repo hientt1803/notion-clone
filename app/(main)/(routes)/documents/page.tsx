@@ -26,7 +26,7 @@ const DocumentsPage = () => {
   };
 
   return (
-    <div className="h-full flex flex-col items-center justify-center space-y-4 ">
+    <div className="h-full flex flex-col items-center justify-center space-y-4 dark:bg-[#212121]">
       <Image
         src="/empty.png"
         width={400}
