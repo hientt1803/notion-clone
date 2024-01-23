@@ -4,7 +4,7 @@ import React from "react";
 import {
   LucideIcon,
   ChevronDown,
-  ChevronRight,
+  ChevronRight, 
   Plus,
   MoreHorizontal,
   Trash,
