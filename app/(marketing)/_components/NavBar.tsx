@@ -28,19 +28,23 @@ const NavBar = () => {
         {!isAuthenticated && !isLoading && (
           <>
             <SignInButton mode="modal">
-              <Button variant="ghost" size="sm">
+              <Button variant="ghost" size="sm" className="dark:text-white">
                 Login
               </Button>
             </SignInButton>
             <SignInButton mode="modal">
-              <Button size="sm">Get Jotion free</Button>
+              <Button size="sm" className="font-medium">
+                Get Jotion free
+              </Button>
             </SignInButton>
           </>
         )}
         {isAuthenticated && !isLoading && (
           <>
             <Button variant="ghost" size="sm" asChild>
-              <Link href="/documents">Enter Jotion</Link>
+              <Link href="/documents" className="font-medium">
+                Enter Jotion
+              </Link>
             </Button>
             <UserButton afterSignOutUrl="/" />
           </>

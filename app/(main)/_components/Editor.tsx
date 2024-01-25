@@ -5,14 +5,29 @@ import { BlockNoteEditor, PartialBlock } from "@blocknote/core";
 import { BlockNoteView, useBlockNote } from "@blocknote/react";
 import "@blocknote/react/style.css";
 
+import { useEdgeStore } from "@/lib/edgestore";
+
 interface EditorProps {
   onChange: (value: string) => void;
   initialContent?: string;
   editable?: boolean;
 }
 
-const Editor = ({ onChange, initialContent, editable }: EditorProps) => {
+const DocumentEditor = ({
+  onChange,
+  initialContent,
+  editable,
+}: EditorProps) => {
   const { resolvedTheme } = useTheme();
+  const { edgestore } = useEdgeStore();
+
+  const handlerUpload = async (file: File) => {
+    const response = await edgestore.publicFiles.upload({
+      file,
+    });
+
+    return response.url;
+  };
 
   const editor: BlockNoteEditor = useBlockNote({
     editable,
@@ -22,8 +37,9 @@ const Editor = ({ onChange, initialContent, editable }: EditorProps) => {
     onEditorContentChange: (editor: any) => {
       onChange(JSON.stringify(editor.topLevelBlocks, null, 2));
     },
+    uploadFile: handlerUpload,
   });
- 
+
   return (
     <div>
       <BlockNoteView
@@ -34,4 +50,4 @@ const Editor = ({ onChange, initialContent, editable }: EditorProps) => {
   );
 };
 
-export default Editor;
+export default DocumentEditor;

@@ -4,7 +4,7 @@ import React from "react";
 import {
   LucideIcon,
   ChevronDown,
-  ChevronRight, 
+  ChevronRight,
   Plus,
   MoreHorizontal,
   Trash,
@@ -68,6 +68,8 @@ const Item = ({
       success: "Note moved to trash!",
       error: "Failed to archive note",
     });
+
+    // router.push("/documents");
   };
 
   const handleExpand = (
@@ -89,7 +91,7 @@ const Item = ({
       if (!expanded) {
         onExpand?.();
       }
-      // router.push(`/doucuments/${documentId}`);
+      router.push(`/documents/${documentId}`);
     });
 
     toast.promise(promise, {
@@ -123,7 +125,7 @@ const Item = ({
       {documentIcon ? (
         <div className="shrink-0 mr-2 text-[18px]">{documentIcon}</div>
       ) : (
-        <Icon className="shrink-0 h-[18px] mr-2 text-muted-foreground" />
+        <Icon className="shrink-0 h-[18px] w-[18px] mr-2 text-muted-foreground" />
       )}
       <span className="truncate">{label}</span>
       {isSearch && (

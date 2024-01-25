@@ -41,7 +41,7 @@ const Menu = ({ documentId }: Id<"documents">) => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button size="sm" variant="ghost">
-          <MoreHorizontal className="h-4 w-4" />
+          <MoreHorizontal className="h-4 w-4 dark:text-white" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent

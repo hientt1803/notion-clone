@@ -17,7 +17,7 @@ interface DocumentIdPageProps {
   };
 }
 
-const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
+const PreviewPage = ({ params }: DocumentIdPageProps) => {
   const document = useQuery(api.documents.getById, {
     documentId: params.documentId,
   });
@@ -60,14 +60,18 @@ const DocumentIdPage = ({ params }: DocumentIdPageProps) => {
   };
 
   return (
-    <div className="dark:bg-[#1F1F1F] pb-40">
-      <Cover url={document.coverImage} />
+    <div className="dark:bg-[#1F1F1F] pb-40 h-[100vh]">
+      <Cover preview url={document.coverImage} />
       <div className="md:max-w-4xl mx-auto">
-        <Toolbar initialData={document} />
-        <DocumentEditor onChange={onChange} initialContent={document.content} />
+        <Toolbar preview initialData={document} />
+        <DocumentEditor
+          editable={false}
+          onChange={onChange}
+          initialContent={document.content}
+        />
       </div>
     </div>
   );
 };
 
-export default DocumentIdPage;
+export default PreviewPage;

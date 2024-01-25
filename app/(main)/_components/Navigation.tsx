@@ -11,7 +11,11 @@ import {
   Trash,
 } from "lucide-react";
 import { useMediaQuery } from "usehooks-ts";
-import { useParams, usePathname } from "@/node_modules/next/navigation";
+import {
+  useParams,
+  usePathname,
+  useRouter,
+} from "@/node_modules/next/navigation";
 import { cn } from "@/lib/utils";
 import UserItem from "./UserItem";
 import { useMutation } from "convex/react";
@@ -30,6 +34,7 @@ import { useSettings } from "@/hooks/use-setting";
 import Navbar from "./Navbar";
 
 const Navigation = () => {
+  const router = useRouter();
   const pathname = usePathname();
   const isMobile = useMediaQuery("(max-width:768px)");
   const params = useParams();
@@ -125,7 +130,7 @@ const Navigation = () => {
   const handleCreate = () => {
     const promise = create({
       title: "Untitle",
-    });
+    }).then((documentId) => router.push(`/documents/${documentId}`));
     toast.promise(promise, {
       loading: "Creating a new note...",
       success: "New note created",
@@ -187,7 +192,7 @@ const Navigation = () => {
           isResetting && "transition-all ease-in-out duration-300",
           isMobile && "left-0 w-full"
         )}
-    >
+      >
         {!!params.documentId ? (
           <Navbar isCollapsed={isCollapsed} onResetWidth={resetWidth} />
         ) : (

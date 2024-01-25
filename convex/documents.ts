@@ -235,11 +235,7 @@ export const getById = query({
   async handler(ctx, args) {
     const identity = await ctx.auth.getUserIdentity();
 
-    if (!identity) {
-      throw new Error("Not authenticated");
-    }
-
-    const userId = identity.subject;
+    const userId = identity ? identity.subject : "";
 
     const document = await ctx.db.get(args.documentId);
 
