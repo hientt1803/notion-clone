@@ -154,7 +154,7 @@ const Item = ({
               className="w-60"
               align="start"
               side="right"
-              fourceMount
+              forceMount
             >
               <DropdownMenuItem onClick={onArchive}>
                 <Trash className="h-4 w-4 mr-2" />

@@ -105,7 +105,7 @@ export const create = mutation({
 });
 
 export const getTrash = query({
-  handler: async (ctx, args) => {
+  handler: async (ctx) => {
     const identity = await ctx.auth.getUserIdentity();
 
     if (!identity) {

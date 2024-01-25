@@ -20,7 +20,11 @@ import { Button } from "@/components/ui/button";
 import { MoreHorizontal, Trash } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
-const Menu = ({ documentId }: Id<"documents">) => {
+interface MenuInterface {
+  documentId: Id<"documents">;
+}
+
+const Menu = ({ documentId }: MenuInterface) => {
   const router = useRouter();
   const { user } = useUser();
   const archive = useMutation(api.documents.archive);

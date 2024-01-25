@@ -8,7 +8,11 @@ import { useRouter } from "@/node_modules/next/navigation";
 import { useMutation } from "convex/react";
 import { toast } from "sonner";
 
-const Banner = ({ documentId }: Id<"documents">) => {
+interface BannerInterface {
+  documentId: Id<"documents">;
+}
+
+const Banner = ({ documentId }: BannerInterface) => {
   const router = useRouter();
   const remove = useMutation(api.documents.remove);
   const restore = useMutation(api.documents.restore);

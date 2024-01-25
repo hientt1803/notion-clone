@@ -7,7 +7,7 @@ import { X, Smile, ImageIcon } from "lucide-react";
 import { ElementRef, useRef, useState } from "react";
 import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
-import TextareaAutosize from "react-textarea-autoSize";
+import TextareaAutosize from 'react-textarea-autosize';
 import { useCoverImage } from "@/hooks/use-cover-image";
 
 interface ToobalProps {
@@ -96,7 +96,7 @@ const Toolbar = ({ initialData, preview }: ToobalProps) => {
               variant="outline"
               size="sm"
             >
-              <Smile classname="h-4 w-4" />
+              <Smile className="h-4 w-4" />
               Add icon
             </Button>
           </IconPicker>

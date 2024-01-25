@@ -63,7 +63,7 @@ const Title = ({ initialData }: TitleInterface) => {
         <Button
           onClick={enableInput}
           variant="ghost"
-          size="sn"
+          size="sm"
           className="font-normal h-auto p-1"
         >
           <span className="truncate">{initialData?.title}</span>
